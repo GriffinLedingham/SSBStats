@@ -1,0 +1,182 @@
+.truncate {
+width: 200px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+display: block;
+}
+
+.character-dd {
+  height:400px;
+  overflow-y: scroll;
+}
+
+.character_typeahead {
+  width:200px;
+}
+
+.tt-dropdown-menu {
+  
+width: 200px;
+margin-top: 12px;
+padding: 8px 0;
+background-color: #fff;
+border: 1px solid #ccc;
+border: 1px solid rgba(0, 0, 0, 0.2);
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+-moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.character-item{
+  padding: 7px;
+}
+
+span.twitter-typeahead .tt-suggestion {
+    padding-left:10px;
+
+}
+
+span.twitter-typeahead .tt-suggestion.tt-cursor {
+  color: #ffffff;
+  background-color: whitesmoke;
+}
+
+.icon {
+  background: url('../assets/chars2.jpg');
+  height: 20px;
+  width: 20px;
+  position: relative;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  background-size: 160px;
+}
+
+.icon.Mario{
+  background-position: 0px 0px;
+} 
+.icon.Luigi{
+  background-position: 0px -23px;
+}  
+.icon.Bowser{
+  background-position: 0px -45px;
+}  
+.icon.Peach{
+  background-position: 0px -68px;
+}  
+.icon.Rosalina{
+  background-position: 0px -91px;
+}  
+
+.icon.dk{
+  background-position: -20px 0px;
+} 
+.icon.Diddy{
+  background-position: -20px -23px;
+}  
+.icon.Yoshi{
+  background-position: -20px -45px;
+}  
+.icon.Wario{
+  background-position: -20px -68px;
+}  
+.icon.Mac{
+  background-position: -20px -91px;
+} 
+
+.icon.Link{
+  background-position: -40px 0px;
+} 
+.icon.Zelda{
+  background-position: -40px -23px;
+}  
+.icon.Sheik{
+  background-position: -40px -45px;
+}  
+.icon.Ganondorf{
+  background-position: -40px -68px;
+}  
+.icon.YL{
+  background-position: -40px -91px;
+}   
+
+.icon.Samus{
+  background-position: -60px 0px;
+} 
+.icon.ZS{
+  background-position: -60px -23px;
+}  
+.icon.Pit{
+  background-position: -60px -45px;
+}  
+.icon.IC{
+  background-position: -60px -68px;
+}  
+.icon.Villager{
+  background-position: -60px -91px;
+}   
+
+.icon.Kirby{
+  background-position: -80px 0px;
+} 
+.icon.MK{
+  background-position: -80px -23px;
+}  
+.icon.KDD{
+  background-position: -80px -45px;
+}  
+.icon.Olimar{
+  background-position: -80px -68px;
+}  
+.icon.WF{
+  background-position: -80px -91px;
+}   
+
+.icon.Fox{
+  background-position: -100px 0px;
+} 
+.icon.Falco{
+  background-position: -100px -23px;
+}  
+.icon.CF{
+  background-position: -100px -45px;
+}  
+.icon.Marth{
+  background-position: -100px -68px;
+}  
+.icon.Lucina{
+  background-position: -100px -91px;
+}  
+
+.icon.Pikachu{
+  background-position: -120px 0px;
+} 
+.icon.Lucario{
+  background-position: -120px -23px;
+}  
+.icon.Charizard{
+  background-position: -120px -45px;
+}  
+.icon.Greninja{
+  background-position: -120px -68px;
+}  
+.icon.Jigglypuff{
+  background-position: -120px -91px;
+}   
+
+.icon.Ness{
+  background-position: -140px 0px;
+} 
+.icon.MG{
+  background-position: -140px -23px;
+}  
+.icon.Sonic{
+  background-position: -140px -45px;
+}  
+.icon.MM{
+  background-position: -140px -68px;
+}   
