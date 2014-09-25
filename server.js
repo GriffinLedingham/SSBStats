@@ -80,7 +80,7 @@ app.post('/loginrequest',function(req,res){
 var server = http.createServer(app);
 var mysql = require('mysql');
 var config = require('./js/config');
-server.listen(8080);  
+server.listen(3000);  
 var db = mysql.createConnection({
     host: config.host_name,
     user: config.user,
