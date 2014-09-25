@@ -11,7 +11,7 @@ function get_recent_games() {
 	      datatype:'json',
 	      data:{token:access_token},
 	      success: function(data) {
-	      	print_recent_games(data, 'recent_games');
+	      	print_games(data, 'recent_games');
 	      }
 		});
 	}
@@ -28,13 +28,13 @@ function get_my_games() {
 	      datatype:'json',
 	      data:{token:access_token},
 	      success: function(data) {
-	      	print_recent_games(data, 'my_games');
+	      	print_games(data, 'my_games');
 	      }
 		});
 	}
 }
 
-function print_recent_games(data, table_id) {
+function print_games(data, table_id) {
 	var tr_string = '<tr style="font-weight:bold;"><td>#</td><td>Player 1</td><td>Player 2</td><td>Player 3</td>'
 						+ '<td>Player 4</td><td>Winner</td></tr>';
 	for(var i =0;i<data.length;i++)
