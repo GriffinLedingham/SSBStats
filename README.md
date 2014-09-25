@@ -26,3 +26,5 @@ for development server, or
 ``` 
 
 for production server (using www.ssbstats.com).
+
+Server will serve public/index.html at localhost:3000
