@@ -196,3 +196,8 @@ overflow:hidden;
 margin-bottom:10px;
 
 }
+
+.signup-error-visible{
+  height:50px;
+  padding-top: 14px;
+}
