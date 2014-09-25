@@ -181,6 +181,22 @@ span.twitter-typeahead .tt-suggestion.tt-cursor {
   background-position: -140px -68px;
 }   
 
+.signup-user-error{
+height: 0px;
+width: 345px;
+display: block;
+margin: auto;
+text-align: center;
+background: rgb(219, 167, 167);
+border-radius: 5px;
+padding-top: 0px;
+transition: padding-top 1s, height 1s;
+box-sizing: border-box;
+overflow:hidden;
+margin-bottom:10px;
+
+}
+
 .login-user-error{
 height: 0px;
 width: 345px;
@@ -195,6 +211,81 @@ box-sizing: border-box;
 overflow:hidden;
 margin-bottom:10px;
 
+}
+
+.signup-pass-error{
+height: 0px;
+width: 345px;
+display: block;
+margin: auto;
+text-align: center;
+background: rgb(219, 167, 167);
+border-radius: 5px;
+padding-top: 0px;
+transition: padding-top 1s, height 1s;
+box-sizing: border-box;
+overflow:hidden;
+margin-bottom:10px;
+}
+
+.signup-pass-char-error{
+height: 0px;
+width: 345px;
+display: block;
+margin: auto;
+text-align: center;
+background: rgb(219, 167, 167);
+border-radius: 5px;
+padding-top: 0px;
+transition: padding-top 1s, height 1s;
+box-sizing: border-box;
+overflow:hidden;
+margin-bottom:10px;
+}
+
+.signup-user-char-error{
+height: 0px;
+width: 345px;
+display: block;
+margin: auto;
+text-align: center;
+background: rgb(219, 167, 167);
+border-radius: 5px;
+padding-top: 0px;
+transition: padding-top 1s, height 1s;
+box-sizing: border-box;
+overflow:hidden;
+margin-bottom:10px;
+}
+
+.signup-email-error{
+height: 0px;
+width: 345px;
+display: block;
+margin: auto;
+text-align: center;
+background: rgb(219, 167, 167);
+border-radius: 5px;
+padding-top: 0px;
+transition: padding-top 1s, height 1s;
+box-sizing: border-box;
+overflow:hidden;
+margin-bottom:10px;
+}
+
+.signup-user-success{
+height: 0px;
+width: 345px;
+display: block;
+margin: auto;
+text-align: center;
+background: rgb(167, 219, 173);
+border-radius: 5px;
+padding-top: 0px;
+transition: padding-top 1s, height 1s;
+box-sizing: border-box;
+overflow:hidden;
+margin-bottom:10px;
 }
 
 .signup-error-visible{

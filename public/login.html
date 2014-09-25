@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="/css/jqueryui.css" type = "text/css">
+    <link rel="stylesheet" href="/css/vendor/jqueryui.css" type = "text/css">
     <link rel="stylesheet" href="/css/app.css" type="text/css">
     <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -13,11 +13,6 @@
     <script src="/js/vendor/jquery.js" type="text/javascript"></script>
     <script src="/js/vendor/jqueryui.js" type="text/javascript"></script>
     <script src="/js/login.js" type="text/javascript"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0;"> 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="image_src" href="assets/header.png"/>
-    <meta property="og:image" content="http://www.gittalk.ca/assets/header.png"/>
-    <meta property="og:title" content="GitTalk"/>
 </head>
 <body onload="init();">
 <!--   <div id="header_img_login"></div>
@@ -38,10 +33,13 @@
       <input id="username" class="form-control" placeholder="Username"><br>
       <input type="password" id="password" class="form-control" placeholder="Password">
       <div class="login-user-error"></div>
-      <a id="submit_stats" class="form-control btn btn-primary" href="/login.html" style="width: 160px;margin:auto;margin-top:30px;display: block;padding: 10px;height: 45px;">
+      <a id="login" class="form-control btn btn-primary" style="width: 160px;margin:auto;margin-top:30px;display: block;padding: 10px;height: 45px;">
         Login
       </a>
-      <a id="submit_stats" class="form-control btn btn-primary" href="/index.html" style="width: 160px;margin:auto;margin-top:10px;display: block;padding: 10px;height: 45px;">
+      <a class="form-control btn btn-primary" href="/signup.html" style="width: 160px;margin:auto;margin-top:30px;display: block;padding: 10px;height: 45px;">
+        Signup
+      </a>
+      <a class="form-control btn btn-primary" href="/index.html" style="width: 160px;margin:auto;margin-top:10px;display: block;padding: 10px;height: 45px;">
         Back to Home
       </a>
     </p>

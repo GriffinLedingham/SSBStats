@@ -82,6 +82,30 @@ var character_class = [
 	"MM",
 ];
 
+function character_typeahead() {
+	$('.character_typeahead').typeahead({
+	  hint: true,
+	  highlight: true,
+	  minLength: 1
+	},
+	{
+	  name: 'characters',
+	  displayKey: 'value',
+	  source: substringMatcher(characters),
+	  templates: {
+	  	suggestion: Handlebars.compile('<div class="character-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" data-num="{{c_num}}"><span class="icon {{class_str}}"></span>{{name}}</a></div>')
+	  }
+	});
+}
+
+function character_dd(dom_id) {
+  return $.ajax({url:'./views/dd.html', type:'GET',complete:function(response){$('#'+dom_id).html(response.responseText);}});
+}
+
+function character_typedown(dom_id) {
+  return $.ajax({url:'./views/dd_typeahead.html', type:'GET',complete:function(response){$('.'+dom_id).html(response.responseText);character_typeahead();}});
+}
+
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substrRegex;
@@ -127,24 +151,3 @@ var substringMatcher = function(strs) {
     cb(matches);
   };
 };
-
-function format_classes(name, class_str, char_num){	
-    str_html = '<div class="character-item" role="presentation"><a role="menuitem" tabindex="-1" href="#" data-num="'+char_num+'"><span class="icon '+class_str+'"></span>'+name+'</a></div>';
-    return str_html;
-}
-
-function character_typeahead() {
-	$('.character_typeahead').typeahead({
-	  hint: true,
-	  highlight: true,
-	  minLength: 1
-	},
-	{
-	  name: 'characters',
-	  displayKey: 'value',
-	  source: substringMatcher(characters),
-	  templates: {
-	  	suggestion: Handlebars.compile(format_classes('{{name}}', '{{class_str}}', '{{c_num}}'))
-	  }
-	});
-}

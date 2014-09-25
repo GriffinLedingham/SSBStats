@@ -1,3 +1,5 @@
+var base_url = 'http://localhost:3000';
+
 var init = function(){
   var access_token = getCookie('access_token');
   if(access_token !== '')
@@ -37,7 +39,7 @@ function getCookie(cname)
 
 function login(){
   $.ajax({
-          url:'http://localhost:8080/loginrequest',
+          url:base_url+'/loginrequest',
           type:'POST',
           datatype:'json',
           data:{username:$('#username').val(),password:$('#password').val()},
