@@ -4,14 +4,14 @@
 ***************************************/
 
 var options = require("nomnom")
-    .option('dev', {
+    .option('prod', {
         flag: true,
         default: false,
         help: 'Build for the Development Environment'
     })
     .parse();
 
-var IS_DEVELOPMENT = options.dev;
+var IS_DEVELOPMENT = !options.dev;
 
 var crypto = require('crypto');
 var fs = require('fs')
@@ -22,15 +22,21 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
   app.use(express.bodyParser());
 });
-app.get('/recent', function(req, res){
+app.post('/recent', function(req, res){
 	// res.send({a:1, b:2});
-	getRecentGames(function(data){
+	getRecentGames(req.body.token, function(data){
+		res.send(data);
+	});
+});
+app.post('/mygames', function(req, res){
+	// res.send({a:1, b:2});
+	getMyGames(req.body.token, function(data){
 		res.send(data);
 	});
 });
 app.post('/score', function(req, res){
-	console.log(req.body);
-	submitScore(req.body.p1_char, req.body.p1_score,
+	submitScore(req.body.token,
+				req.body.p1_char, req.body.p1_score,
 				req.body.p2_char, req.body.p2_score,
 				req.body.p3_char, req.body.p3_score,
 				req.body.p4_char, req.body.p4_score,
@@ -58,7 +64,7 @@ app.post('/loginrequest',function(req,res){
 				}
 				else
 				{
-					res.cookie('access_token', token, { domain: 'MY_DOMAIN_HERE', maxAge: 90000000000});
+					res.cookie('access_token', token, { domain: '.ssbstats.com', maxAge: 90000000000});
 				}
 				res.send(response);
 				res.end();
@@ -86,61 +92,87 @@ var db = mysql.createConnection({
 	Whew, done setting globals
 ***************************************/
 
-function submitScore(p1_char, p1_score, p2_char, p2_score, p3_char, p3_score, p4_char, p4_score, winner, fn)
+function submitScore(token, p1_char, p1_score, p2_char, p2_score, p3_char, p3_score, p4_char, p4_score, winner, fn)
 {
-	console.log(winner);
-	var score_object = {p1: null, p2: null, p3: null,p4: null,
-		k1: null,k2: null,k3: null,k4: null, win: null};
-
-	if(p1_char != '' && p1_char != '-1' && isNumber(parseInt(p1_char)) &&
-		p1_score != '' && isNumber(parseInt(p1_score)))
-	{
-		score_object.p1 = p1_char;
-		score_object.k1 = p1_score;
-	}
-
-	if(p2_char != '' && p2_char != '-1' && isNumber(parseInt(p2_char)) &&
-		p2_score != '' && isNumber(parseInt(p2_score)))
-	{
-		score_object.p2 = p2_char;
-		score_object.k2 = p2_score;
-	}
-
-	if(p3_char != '' && p3_char != '-1' && isNumber(parseInt(p3_char)) &&
-		p3_score != '' && isNumber(parseInt(p3_score)))
-	{
-		score_object.p3 = p3_char;
-		score_object.k3 = p3_score;
-	}
-
-	if(p4_char != '' && p4_char != '-1' && isNumber(parseInt(p4_char)) &&
-		p4_score != '' && isNumber(parseInt(p4_score)))
-	{
-		score_object.p4 = p4_char;
-		score_object.k4 = p4_score;
-	}
-
-	if(winner != '' && winner != '-1' && isNumber(parseInt(winner)))
-	{
-		score_object.win = winner;
-	}
-
-	var query = db.query('INSERT INTO games SET ?', score_object, function(err,result){
-		if(err === null)
+	var query = db.query("SELECT u_id, token FROM users WHERE token='"+token+"'", function(err,info){
+	
+		if(err === null && info.length !== 0)
 		{
-			fn(true);
-		}
-		else
-		{
-			fn(err);
+			var score_object = {p1: null, p2: null, p3: null,p4: null,
+				k1: null,k2: null,k3: null,k4: null, win: null};
+
+			score_object.u_id = info[0].u_id;
+
+			if(p1_char != '' && p1_char != '-1' && isNumber(parseInt(p1_char)) &&
+				p1_score != '' && isNumber(parseInt(p1_score)))
+			{
+				score_object.p1 = p1_char;
+				score_object.k1 = p1_score;
+			}
+
+			if(p2_char != '' && p2_char != '-1' && isNumber(parseInt(p2_char)) &&
+				p2_score != '' && isNumber(parseInt(p2_score)))
+			{
+				score_object.p2 = p2_char;
+				score_object.k2 = p2_score;
+			}
+
+			if(p3_char != '' && p3_char != '-1' && isNumber(parseInt(p3_char)) &&
+				p3_score != '' && isNumber(parseInt(p3_score)))
+			{
+				score_object.p3 = p3_char;
+				score_object.k3 = p3_score;
+			}
+
+			if(p4_char != '' && p4_char != '-1' && isNumber(parseInt(p4_char)) &&
+				p4_score != '' && isNumber(parseInt(p4_score)))
+			{
+				score_object.p4 = p4_char;
+				score_object.k4 = p4_score;
+			}
+
+			if(winner != '' && winner != '-1' && isNumber(parseInt(winner)))
+			{
+				score_object.win = winner;
+			}
+
+			var query = db.query('INSERT INTO games SET ?', score_object, function(err,result){
+				if(err === null)
+				{
+					fn(true);
+				}
+				else
+				{
+					fn(err);
+				}
+			});
 		}
 	});
 }
 
-function getRecentGames(fn)
+function getRecentGames(token, fn)
 {
-	var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games", function(err,info){
-		fn(info);
+	var query = db.query("SELECT u_id, token FROM users WHERE token='"+token+"'", function(err,info){
+	
+		if(err === null && info.length !== 0)
+		{
+			var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games ORDER BY id DESC LIMIT 10", function(err,info){
+				fn(info);
+			});
+		}
+	});
+}
+
+function getMyGames(token, fn)
+{
+	var query = db.query("SELECT u_id, token FROM users WHERE token='"+token+"'", function(err,info){
+	
+		if(err === null && info.length !== 0)
+		{
+			var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games WHERE u_id='"+info[0].u_id+"' ORDER BY id DESC LIMIT 2", function(err,info){
+				fn(info);
+			});
+		}
 	});
 }
 

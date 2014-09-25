@@ -2,6 +2,8 @@
 <head>
     <link rel="stylesheet" href="/css/jqueryui.css" type = "text/css">
     <link rel="stylesheet" href="/css/app.css" type="text/css">
+    <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
+
     <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
 
     <title>GitTalk</title>
@@ -18,7 +20,7 @@
     <meta property="og:title" content="GitTalk"/>
 </head>
 <body onload="init();">
-  <div id="header_img_login"></div>
+<!--   <div id="header_img_login"></div>
 
   <input id="username" placeholder="Username">
   <input type="password" id="password" placeholder="Password">
@@ -28,5 +30,21 @@
   <a href="/signup.html" class="button" id="signup">Sign Up</a>
   <a href="/github" class="button" id="github_login">Login With GitHub</a>
   <a href="/index.html" class="button" id="back_to_menu">Back to Home</a>
+ -->
+  <div class="jumbotron" style="margin: 30px;border-radius: 10px;background:#272727;width: 750px;margin: auto;margin-top: 100px;">
+    <h1 style="color:white;">Login</h1>
+    <p>
+      <br>
+      <input id="username" class="form-control" placeholder="Username"><br>
+      <input type="password" id="password" class="form-control" placeholder="Password">
+      <div class="alert alert-danger login-user-error"></div>
+      <a id="submit_stats" class="form-control btn btn-primary" href="/login.html" style="width: 160px;margin:auto;margin-top:30px;display: block;padding: 10px;height: 45px;">
+        Login
+      </a>
+      <a id="submit_stats" class="form-control btn btn-primary" href="/index.html" style="width: 160px;margin:auto;margin-top:10px;display: block;padding: 10px;height: 45px;">
+        Back to Home
+      </a>
+    </p>
+  </div>
 </body>
 </html>

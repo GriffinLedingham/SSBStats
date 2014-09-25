@@ -8,33 +8,62 @@ function home_init() {
   $('#submit_stats').on('click', function(){
   	console.log($('#p1 .tt-input').val());
   	console.log($('#p1_score').val());
-  	$.ajax({
-          url:'http://localhost:8080/score',
-          type:'POST',
-          datatype:'json',
-          data:{p1_char: characters.indexOf($('#p1 .tt-input').val()) ,p1_score: $('#p1_score').val(),
-          		p2_char: characters.indexOf($('#p2 .tt-input').val()) ,p2_score: $('#p2_score').val(),
-          		p3_char: characters.indexOf($('#p3 .tt-input').val()) ,p3_score: $('#p3_score').val(),
-          		p4_char: characters.indexOf($('#p4 .tt-input').val()) ,p4_score: $('#p4_score').val(),
-          		winner: characters.indexOf($('#winner .tt-input').val())},
-          success: function(data) { 
-          	get_recent_games();
-          }
-      });
+  	var access_token = getCookie('access_token');
+  	if(access_token != '')
+  	{
+	  	$.ajax({
+	          url:'http://localhost:8080/score',
+	          type:'POST',
+	          datatype:'json',
+	          data:{token:access_token,
+	          		p1_char: characters.indexOf($('#p1 .tt-input').val()) ,p1_score: $('#p1_score').val(),
+	          		p2_char: characters.indexOf($('#p2 .tt-input').val()) ,p2_score: $('#p2_score').val(),
+	          		p3_char: characters.indexOf($('#p3 .tt-input').val()) ,p3_score: $('#p3_score').val(),
+	          		p4_char: characters.indexOf($('#p4 .tt-input').val()) ,p4_score: $('#p4_score').val(),
+	          		winner: characters.indexOf($('#winner .tt-input').val())},
+	          success: function(data) { 
+	          	get_recent_games();
+	          }
+	      });
+	  }
   });
 
   get_recent_games();
+  get_my_games();
 }
 
 function get_recent_games() {
 	$('#recent_games').html('');
-	$.ajax({
-      url:'http://localhost:8080/recent',
-      type:'GET',
-      success: function(data) {
-      	print_recent_games(data, 'recent_games');
-      }
-	});
+	var access_token = getCookie('access_token');
+	if(access_token != '')
+	{
+		$.ajax({
+	      url:'http://localhost:8080/recent',
+	      type:'POST',
+	      datatype:'json',
+	      data:{token:access_token},
+	      success: function(data) {
+	      	print_recent_games(data, 'recent_games');
+	      }
+		});
+	}
+}
+
+function get_my_games() {
+	$('#my_games').html('');
+	var access_token = getCookie('access_token');
+	if(access_token != '')
+	{
+		$.ajax({
+	      url:'http://localhost:8080/mygames',
+	      type:'POST',
+	      datatype:'json',
+	      data:{token:access_token},
+	      success: function(data) {
+	      	print_recent_games(data, 'my_games');
+	      }
+		});
+	}
 }
 
 function print_recent_games(data, table_id) {
@@ -84,4 +113,16 @@ function character_typedown(dom_id) {
 
 function getView(slug, success_func) {
   return $.ajax({url:'./views/'+slug+'.html', type:'GET',complete:function(response){$('#content').html(response.responseText);success_func();}});
+}
+
+function getCookie(cname)
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+    {
+    var c = ca[i].trim();
+    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+    }
+  return "";
 }
