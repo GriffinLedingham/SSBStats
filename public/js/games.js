@@ -1,12 +1,10 @@
-var base_url = 'http://localhost:3000';
-
 function get_recent_games() {
 	$('#recent_games').html('');
 	var access_token = getCookie('access_token');
 	if(access_token != '')
 	{
 		$.ajax({
-	      url:base_url + '/recent',
+	      url:'/recent',
 	      type:'POST',
 	      datatype:'json',
 	      data:{token:access_token},
@@ -23,7 +21,7 @@ function get_my_games() {
 	if(access_token != '')
 	{
 		$.ajax({
-	      url:base_url + '/mygames',
+	      url:'/mygames',
 	      type:'POST',
 	      datatype:'json',
 	      data:{token:access_token},

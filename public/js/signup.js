@@ -1,5 +1,3 @@
-var base_url = 'http://localhost:3000';
-
 var init = function(){
   var access_token = getCookie('access_token');
   if(access_token !== '')
@@ -95,7 +93,7 @@ var submit_form = function(){
     if(!found_error)
     {
       $.ajax({
-        url:base_url + '/account',
+        url:'/account',
         type:'POST',
         datatype:'json',
         data:{username:$('#username').val(),password:$('#password').val(),email:$('#email').val()},
