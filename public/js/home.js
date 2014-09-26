@@ -6,7 +6,7 @@ function home_init() {
   	if(access_token != '')
   	{
 	  	$.ajax({
-	          url:base_url + '/score',
+	          url:'/score',
 	          type:'POST',
 	          datatype:'json',
 	          data:{token:access_token,
