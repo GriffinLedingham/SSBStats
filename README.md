@@ -43,7 +43,7 @@ getView('home', home_init)
 
 where the first parameter is the template being loaded, and the second parameter is the function being called on load.
 
-This is how pages are loaded into the content viewport throughout the app. Make sure that your page's script is included in app.html, and that your view is named appropriately in views/
+This is how pages are loaded into the content viewport throughout the app. Make sure that your page's script is included in app.html, and that your view is named appropriately in the views/ folder.
 
 Call this function 
 
