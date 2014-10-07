@@ -16,13 +16,13 @@ while inside this repo folder to install all required node_modules.
 Run 
 
 ```
-./server.js
+node server.js
 ``` 
 
 for development server, or 
 
 ```
-./server.js --prod
+node server.js --prod
 ``` 
 
 for production server (using www.ssbstats.com).
