@@ -1,5 +1,5 @@
 {
-  "name": "gittalk-server",
+  "name": "ssbstats-server",
   "preferGlobal": true,
   "version": "0.1.0",
   "author": "Griffin Ledingham <gcledingham@gmail.com>",
@@ -7,7 +7,7 @@
     "http" : "*",
     "express" : "3.4.8",
     "mysql" : "*",
-    "nomnom" : "*",
+    "nomnom" : "*"
   }, 
   "license": "GPL v2",
   "engines": {
