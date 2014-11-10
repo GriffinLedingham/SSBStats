@@ -82,8 +82,8 @@ var character_class = [
 	"MM",
 ];
 
-function character_typeahead() {
-	$('.character_typeahead').typeahead({
+function character_typeahead(color) {
+	$('.character_typeahead'+'_'+color).typeahead({
 	  hint: true,
 	  highlight: true,
 	  minLength: 1
@@ -102,8 +102,14 @@ function character_dd(dom_id) {
   return $.ajax({url:'./views/dd.html', type:'GET',complete:function(response){$('#'+dom_id).html(response.responseText);}});
 }
 
-function character_typedown(dom_id) {
-  return $.ajax({url:'./views/dd_typeahead.html', type:'GET',complete:function(response){$('.'+dom_id).html(response.responseText);character_typeahead();}});
+function character_typedown(dom_id, color) {
+  var replace_color = color;
+
+  if(color === 'trans')
+  {
+  	replace_color = 'rgba(0, 15, 31, 0)';
+  }
+  return $.ajax({url:'./views/dd_typeahead.html', type:'GET',complete:function(response){$('.'+dom_id+'_'+color).html(response.responseText.replace('{{COLOR}}', replace_color).replace('character_typeahead', 'character_typeahead_'+color));character_typeahead(color);}});
 }
 
 var substringMatcher = function(strs) {

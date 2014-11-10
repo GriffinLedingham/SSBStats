@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/css/vendor/jqueryui.css" type = "text/css">
     <link rel="stylesheet" href="/css/app.css" type="text/css">
     <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:900,700,400' rel='stylesheet' type='text/css'>    
     <title>SSBStats</title>
     <link rel="icon" 
       type="image/png" 
@@ -20,18 +20,19 @@
     <script src="/js/vendor/typeahead.min.js" type="text/javascript"></script>
     <script src="/js/vendor/handlebars-v2.0.0.js" type="text/javascript"></script>
 </head>
-<body onload="init();">
+<body onload="init();" style="background: linear-gradient(rgba(0, 2, 8, 0.85), rgba(0, 2, 8, 1)), url(http://localhost:3000/assets/bg.jpg) no-repeat;
+background-size: 100%;">
   <div id="content-pane" style="width:100%;-webkit-transition: transform .2s;">
     <div style="width:300px;background:#272727;height:100%;float:left;margin-left:-300px;position:relative;">
 
     </div>
     <div id="content-body">
-      <div style="height: 50px;background: rgba(44, 99, 153, 0.96);width: 100%;position: fixed;top: 0px;z-index: 100;">
-        <div class="list-button" style="float: left;width: 50px;border-right: 1px solid rgba(255, 255, 255, 0.31);height: 50px;cursor: pointer;" id="list-button">
+      <div style="height: 50px;background: rgba(0, 15, 31, 0.89);width: 100%;position: fixed;top: 0px;z-index: 100;border-bottom: 1px solid rgba(89, 89, 89, 0.31);">
+        <div class="list-button" style="float: left;width: 50px;border-right: 1px solid rgba(89, 89, 89, 0.31);height: 50px;cursor: pointer;" id="list-button">
           <span class="glyphicon glyphicon-align-justify" style="color: white;font-size: 20px;padding: 7px;padding-left: 13px;padding-top: 12px;"></span>
         </div>
       </div>
-      <div>
+      <div style="height: 100%;overflow-y: scroll;">
         <div style="height:50px;">
         </div>
         <div id="content" class="z-bottom margin-top-100">

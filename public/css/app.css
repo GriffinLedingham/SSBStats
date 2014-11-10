@@ -2,8 +2,13 @@
   -webkit-transform: translateX(300px);
 }
 
+.character_typeahead_trans{
+  height:50px !important; 
+  border-left:0px !important;
+}
+
 .list-button:hover {
-  background: #428bca;
+  background: rgb(57, 57, 86);
 }
 
 .truncate {
@@ -24,7 +29,7 @@ display: block;
 }
 
 .tt-dropdown-menu {
-  
+      z-index: 1000000000 !important;
 width: 200px;
 margin-top: 12px;
 padding: 8px 0;

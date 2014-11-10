@@ -1,5 +1,7 @@
 function init() {
   $('#list-button').on('click', function(){
+    // scrollTo(0,0);
+
     if(!$('#content-pane').hasClass('content-pane-shift'))
     {
       $('#content-pane').addClass('content-pane-shift');

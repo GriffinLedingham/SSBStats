@@ -24,13 +24,13 @@ app.configure(function(){
 });
 app.post('/recent', function(req, res){
 	// res.send({a:1, b:2});
-	getRecentGames(req.body.token, function(data){
+	getRecentGames(req.body.token, req.body.start, req.body.limit, function(data){
 		res.send(data);
 	});
 });
 app.post('/mygames', function(req, res){
 	// res.send({a:1, b:2});
-	getMyGames(req.body.token, function(data){
+	getMyGames(req.body.token, req.body.start, req.body.limit, function(data){
 		res.send(data);
 	});
 });
@@ -150,26 +150,28 @@ function submitScore(token, p1_char, p1_score, p2_char, p2_score, p3_char, p3_sc
 	});
 }
 
-function getRecentGames(token, fn)
+function getRecentGames(token, start, limit, fn)
 {
+	limit = parseInt(limit) + 1;
 	var query = db.query("SELECT u_id, token FROM users WHERE token='"+token+"'", function(err,info){
 	
 		if(err === null && info.length !== 0)
 		{
-			var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games ORDER BY id DESC LIMIT 10", function(err,info){
+			var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games ORDER BY id DESC LIMIT "+start+", "+limit, function(err,info){
 				fn(info);
 			});
 		}
 	});
 }
 
-function getMyGames(token, fn)
+function getMyGames(token, start, limit, fn)
 {
+	limit = parseInt(limit) + 1;
 	var query = db.query("SELECT u_id, token FROM users WHERE token='"+token+"'", function(err,info){
 	
 		if(err === null && info.length !== 0)
 		{
-			var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games WHERE u_id='"+info[0].u_id+"' ORDER BY id DESC LIMIT 2", function(err,info){
+			var query = db.query("SELECT id,p1,p2,p3,p4,k1,k2,k3,k4,win FROM games WHERE u_id='"+info[0].u_id+"' ORDER BY id DESC LIMIT "+start+", "+limit, function(err,info){
 				fn(info);
 			});
 		}

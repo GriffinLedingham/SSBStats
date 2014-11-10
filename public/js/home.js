@@ -1,5 +1,9 @@
 function home_init() {
-  character_typedown('char_dropdown');
+  character_typedown('char_dropdown','7ce374');
+  character_typedown('char_dropdown','ffd674');
+  character_typedown('char_dropdown','74a9ff');
+  character_typedown('char_dropdown','ff7474');
+  character_typedown('char_dropdown','trans');
 
   $('#submit_stats').on('click', function(){
   	var access_token = getCookie('access_token');
@@ -16,13 +20,13 @@ function home_init() {
 	          		p4_char: characters.indexOf($('#p4 .tt-input').val()) ,p4_score: $('#p4_score').val(),
 	          		winner: characters.indexOf($('#winner .tt-input').val())},
 	          success: function(data) { 
-	          	get_recent_games();
-	          	get_my_games();
+	          	get_recent_games(0,5);
+	          	get_my_games(0,5);
 	          }
 	      });
 	  }
   });
 
-  get_recent_games();
-  get_my_games();
+  get_recent_games(0,5);
+  get_my_games(0,5);
 }

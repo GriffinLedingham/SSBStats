@@ -1,70 +1,88 @@
-<div class="jumbotron" style="margin: 30px;border-radius: 10px;background:#272727;">
-  <h1 style="color:white;">Input Your Stats</h1>
+<div style="margin: 30px;">
+  <h1 style="color: white;text-align: center;font-family: Roboto;font-weight: bold;">INPUT YOUR STATS:</h1>
   <div style="display: block;position: relative;height: 200px;margin: auto;width: 880px;margin-top: 50px;">
-  	<div id="p1" class="alert alert-danger" style="display:block;width:200px;padding-top:40px;padding-bottom:40px;float:left;margin:10px;">
-  		<span class="input-group">
-  			 <span class="input-group-addon">P1</span>
-  			<span class="dropdown char_dropdown"></span>
+  	<div id="p1" style="padding: 15px;display: block;width: 200px;padding-top: 30px;padding-bottom: 30px;float: left;margin: 10px;-webkit-transform: skewX(-10deg);background-color: #ff4646;">
+  		<span class="input-group" style="margin-bottom:10px;">
+  			 <span class="input-group-addon" style="border-radius:0px;background-color:#661c1c;color:white;">P1</span>
+  			<span class="dropdown char_dropdown_ff7474" style="background-color:#ff7474;"></span>
   		</span>
   		<span class="input-group">
-  			<span class="input-group-addon">KOs</span>
-  			<input id="p1_score" class="form-control"/>
+  			<span class="input-group-addon" style="border-radius:0px;background-color:#661c1c;color:white;">KOs</span>
+  			<input id="p1_score" class="form-control" style="border-radius:0px;background-color:ff7474;color:white;font-family:Roboto;"/>
   		</span>
   	</div>
-  	<div id="p2" class="alert alert-info" style="display:block;width:200px;padding-top:40px;padding-bottom:40px;float:left;margin:10px;">
-		<span class="input-group">
-  			 <span class="input-group-addon">P2</span>
-  			<span class="dropdown char_dropdown"></span>
+  	<div id="p2" style="padding: 15px;display: block;width: 200px;padding-top: 30px;padding-bottom: 30px;float: left;margin: 10px;-webkit-transform: skewX(-10deg);background-color: #468cff;">
+		<span class="input-group" style="margin-bottom:10px;">
+  			 <span class="input-group-addon" style="border-radius:0px;background-color:#1c3866;color:white;">P2</span>
+  			<span class="dropdown char_dropdown_74a9ff"></span>
   		</span>
   		<span class="input-group">
-  			<span class="input-group-addon">KOs</span>
-  			<input id="p2_score" class="form-control"/>
+  			<span class="input-group-addon" style="border-radius:0px;background-color:#1c3866;color:white;">KOs</span>
+  			<input id="p2_score" class="form-control" style="border-radius:0px;background-color:#74a9ff;color:white;font-family:Roboto;"/>
   		</span>
 	</div>
-	<div id="p3" class="alert alert-warning" style="display:block;width:200px;padding-top:40px;padding-bottom:40px;float:left;margin:10px;">
-		<span class="input-group">
-  			 <span class="input-group-addon">P3</span>
-  			<span class="dropdown char_dropdown"></span>
-  		</span>
-  		<span class="input-group">
-  			<span class="input-group-addon">KOs</span>
-  			<input id="p3_score" class="form-control"/>
-  		</span>
+	<div id="p3" style="padding: 15px;display: block;width: 200px;padding-top: 30px;padding-bottom: 30px;float: left;margin: 10px;-webkit-transform: skewX(-10deg);background-color: #ffc846;">
+		<span class="input-group" style="margin-bottom:10px;">
+         <span class="input-group-addon" style="border-radius:0px;background-color:#66501c;color:white;">P3</span>
+        <span class="dropdown char_dropdown_ffd674"></span>
+      </span>
+      <span class="input-group">
+        <span class="input-group-addon" style="border-radius:0px;background-color:#66501c;color:white;">KOs</span>
+        <input id="p3_score" class="form-control" style="border-radius:0px;background-color:#ffd674;color:white;font-family:Roboto;"/>
+      </span>
 	</div>
-	<div id="p4" class="alert alert-success" style="display:block;width:200px;padding-top:40px;padding-bottom:40px;float:left;margin:10px;">
-		<span class="input-group">
-  			 <span class="input-group-addon">P4</span>
-  			<span class="dropdown char_dropdown"></span>
-  		</span>
-  		<span class="input-group">
-  			<span class="input-group-addon">KOs</span>
-  			<input id="p4_score" class="form-control"/>
-  		</span>
+	<div id="p4" style="padding: 15px;display: block;width: 200px;padding-top: 30px;padding-bottom: 30px;float: left;margin: 10px;-webkit-transform: skewX(-10deg);background-color: #50d946;">
+		<span class="input-group" style="margin-bottom:10px;">
+         <span class="input-group-addon" style="border-radius:0px;background-color:#20571c;color:white;">P4</span>
+        <span class="dropdown char_dropdown_7ce374"></span>
+      </span>
+      <span class="input-group">
+        <span class="input-group-addon" style="border-radius:0px;background-color:#20571c;color:white;">KOs</span>
+        <input id="p4_score" class="form-control" style="border-radius:0px;background-color:#7ce374;color:white;font-family:Roboto;"/>
+      </span>
 	</div>
   </div>
-  <div id="winner" style="margin: auto;width: 250px;margin-bottom: 40px;">
-	  <span class="input-group" style="margin:auto;">
-		<span class="input-group-addon">Winner</span>
-		<span class="dropdown char_dropdown"></span>
-	  </span>
-  </div>
-  <p>
-  	<a id="submit_stats" class="form-control btn btn-primary" style="width: 160px;margin: auto;display: block;padding: 10px;height: 45px;">
-  		Submit
-  	</a>
-  </p>
+  <span id="winner" style="margin: auto;width: 250px;margin-bottom: 40px;">
+    <div style="width: 350px;display: block;margin: auto;">
+  	  <span class="input-group" style="-webkit-transform: skewX(-10deg);border-radius: 0px !important;width:280px;float:left;">
+    		<span class="input-group-addon" style="margin: auto;background-color: rgba(0,0,0,0);border-radius: 0px;font-family: Roboto;color: white;height:50px;">WINNER</span>
+    		<span class="dropdown char_dropdown_trans"></span>
+  	  </span>
+      <span style="display: block;width: 70px;position: relative;float: left;">
+        <a id="submit_stats" class="form-control btn btn-primary" style="width: 140px;margin: auto;display: block;padding: 10px;height: 50px;-webkit-transform: skewX(-10deg);border-radius: 0px;border: 0px;background: rgba(0,0,0,0);padding-top: 14px;font-size: 14px;color:#ea8c03;font-family:Roboto;font-weight:bold;">
+          SUBMIT
+        </a>
+      </span>
+    </div>
+  </span>
 </div>
 
-<div class="jumbotron" style="margin: 30px;border-radius: 10px;background:#272727;">
-  <h1 style="color:white;">My Games</h1>
+<div class="jumbotron" style="min-width:1325px;margin: 30px;border-radius: 10px;background:#181D2D;font-family:Roboto;margin: auto;display: table;margin-top: 100px;margin-bottom: 30px;padding-top:32px;">
+  <h1 style="color:white;font-weight: bold;font-size: 36px;margin-bottom:32px;">MY GAMES</h1>
   <table id="my_games" class="table" style="color:white;">
 
   </table>
+  <div style="text-align:center;">
+    <span id="my_prev" style="display:none;color:white;font-family:Roboto;cursor:pointer;margin-right:10px;">
+      << PREV
+    </span>
+    <span id="my_next" style="display:none;color:white;font-family:Roboto;cursor:pointer;">
+      NEXT >>
+    </span>
+  </div>
 </div>
 
-<div class="jumbotron" style="margin: 30px;border-radius: 10px;background:#272727;">
-  <h1 style="color:white;">Recent Games</h1>
+<div class="jumbotron" style="min-width:1325px;margin: 30px;border-radius: 10px;background:#181D2D;font-family:Roboto;margin: auto;display: table;margin-top: 30px;margin-bottom: 30px;padding-top:32px;">
+  <h1 style="color:white;font-weight: bold;font-size: 36px;margin-bottom:32px;">RECENT GAMES</h1>
   <table id="recent_games" class="table" style="color:white;">
 
   </table>
+  <div style="text-align:center;">
+    <span id="all_prev" style="display:none;color:white;font-family:Roboto;cursor:pointer;margin-right:10px;">
+      << PREV
+    </span>
+    <span id="all_next" style="display:none;color:white;font-family:Roboto;cursor:pointer;">
+      NEXT >>
+    </span>
+  </div>
 </div>
