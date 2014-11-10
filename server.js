@@ -53,6 +53,7 @@ app.post('/account',function(req,res){
 	});
 });
 app.post('/loginrequest',function(req,res){
+	// console.log('hi');
 	loginUser(req.body.username,req.body.password,function(response,token){
 		if(response === true)
 		{
@@ -196,9 +197,9 @@ function createUser(username,password,email,fn)
 
 function loginUser(username,password,fn)
 {
-	console.log(crypto.createHash('sha256').update(password).digest("hex"));
+	// console.log(crypto.createHash('sha256').update(password).digest("hex"));
 	var query = db.query("SELECT uname, password, token, email FROM users WHERE uname='"+username+"'", function(err,info){
-		console.log(info);
+		// console.log(info);
 		if(err === null && info.length !== 0)
 		{
 			var pass_key = info[0].password;

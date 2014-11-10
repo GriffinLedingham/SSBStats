@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/jqueryui.css" type = "text/css">
     <link rel="stylesheet" href="/css/app.css" type="text/css">
     <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:900,700,400' rel='stylesheet' type='text/css'>    
 
         <title>SSBStats</title>
     <link rel="icon" 
@@ -16,21 +16,22 @@
     <script src="/js/vendor/bootstrap.min.js" type="text/javascript"></script>
 </head>
 
-<body onload="init()">
+<body onload="init()" style="background: linear-gradient(rgba(0, 2, 8, 0.85), rgba(0, 2, 8, 1)), url('/assets/bg.jpg') no-repeat;
+background-size: 100%;">
   <div style="width:100%;-webkit-transition: transform .2s;" id="content-pane">
     <div style="width:300px;background:#272727;height:100%;float:left;margin-left:-300px;position:relative;">
 
     </div>
     <div id="content-body" style="float:left;width:100%;position:relative;">
-      <div style="height:50px;background: rgba(44, 99, 153, 0.96);width:100%;">
+      <div style="height:50px;background: rgba(0, 15, 31, 0.89);width:100%;">
         <div class="list-button" style="float: left;width: 50px;border-right: 1px solid rgba(255, 255, 255, 0.31);height: 50px;cursor: pointer;" id="list-button">
           <span class="glyphicon glyphicon-align-justify" style="color: white;font-size: 20px;padding: 7px;padding-left: 13px;padding-top: 12px;"></span>
         </div>
       </div>
-      <div class="jumbotron" style="margin: 30px;border-radius: 10px;background:#272727;width: 750px;margin: auto;margin-top: 100px;">
-        <h1 style="color:white;">SSBStats</h1>
+      <div class="jumbotron" style="width:750px;margin: 30px;border-radius: 10px;background:#181D2D;font-family:Roboto;margin: auto;display: table;margin-top: 100px;margin-bottom: 30px;padding-top:32px;">
+        <h1 style="color:white;font-weight: bold;font-size: 36px;margin-bottom:32px;font-family:Roboto;">SSBStats</h1>
         <p>
-          <a id="submit_stats" class="form-control btn btn-primary" href="/login.html" style="width: 160px;margin-top:30px;display: block;padding: 10px;height: 45px;">
+          <a id="submit_stats" class="form-control" href="/login.html" style="cursor:pointer;width: 160px;margin:auto;margin-top:30px;display: block;padding: 10px;height: 45px;-webkit-transform: skewX(-10deg);text-align:center;border-radius:0px;background-color:rgba(0,0,0,0);color:white;">
             Login
           </a>
         </p>
