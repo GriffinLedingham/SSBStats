@@ -2,9 +2,21 @@
   -webkit-transform: translateX(300px);
 }
 
+.borderless td {
+    border: none !important;
+}
+
 .character_typeahead_trans{
   height:50px !important; 
   border-left:0px !important;
+}
+
+tr {
+  height:30px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(57, 57, 86);
 }
 
 .list-button:hover {
