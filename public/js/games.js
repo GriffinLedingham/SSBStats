@@ -33,8 +33,8 @@ function get_my_games(start, limit) {
 }
 
 function print_games(data, start, limit, table_id, id) {
-	var tr_string = '<tr style="font-weight:bold;"><td>#</td><td>Player 1</td><td>Player 2</td><td>Player 3</td>'
-						+ '<td>Player 4</td><td>Winner</td></tr>';
+	var tr_string = '<thead><tr style="font-weight:bold;"><th>#</th><th>Player 1</th><th>Player 2</th><th>Player 3</th>'
+						+ '<th>Player 4</th><th>Winner</th></tr></thead>';
 
 	var list_length = data.length;
 	var has_next_page = false;
@@ -77,98 +77,98 @@ function print_games(data, start, limit, table_id, id) {
 		tr_string += '</tr>';
 	}
 
-	if(id === 'my')
-	{
-		$('#my_prev').off('click');
-		$('#my_next').off('click');
+	// if(id === 'my')
+	// {
+	// 	$('#my_prev').off('click');
+	// 	$('#my_next').off('click');
 
-		if(has_next_page)
-		{
-			if($('#my_next').css('display') != 'initial')
-			{
-				$('#my_next').css('display', 'initial');
-			}
-			$('#my_next').on('click','', function(){
-				get_my_games(start+limit,limit);				
-			});
-		}
-		else
-		{
-			if($('#my_next').css('display') != 'none')
-			{
-				$('#my_next').css('display', 'none');
-			}
-		}
+	// 	if(has_next_page)
+	// 	{
+	// 		if($('#my_next').css('display') != 'initial')
+	// 		{
+	// 			$('#my_next').css('display', 'initial');
+	// 		}
+	// 		$('#my_next').on('click','', function(){
+	// 			get_my_games(start+limit,limit);				
+	// 		});
+	// 	}
+	// 	else
+	// 	{
+	// 		if($('#my_next').css('display') != 'none')
+	// 		{
+	// 			$('#my_next').css('display', 'none');
+	// 		}
+	// 	}
 
-		if(start > 0)
-		{
-			if($('#my_prev').css('display') != 'initial')
-			{
-				$('#my_prev').css('display', 'initial');
-			}
-			$('#my_prev').on('click','', function(){
-				var new_start = start - limit;
-				if(new_start < 0)
-				{
-					new_start = 0;
-				}
-				get_my_games(new_start,limit);				
-			});
-		}
-		else
-		{
-			if($('#my_prev').css('display') != 'none')
-			{
-				$('#my_prev').css('display', 'none');
-			}
-		}
-	}
-	else if(id === 'all')
-	{
-		$('#all_prev').off('click');
-		$('#all_next').off('click');
+	// 	if(start > 0)
+	// 	{
+	// 		if($('#my_prev').css('display') != 'initial')
+	// 		{
+	// 			$('#my_prev').css('display', 'initial');
+	// 		}
+	// 		$('#my_prev').on('click','', function(){
+	// 			var new_start = start - limit;
+	// 			if(new_start < 0)
+	// 			{
+	// 				new_start = 0;
+	// 			}
+	// 			get_my_games(new_start,limit);				
+	// 		});
+	// 	}
+	// 	else
+	// 	{
+	// 		if($('#my_prev').css('display') != 'none')
+	// 		{
+	// 			$('#my_prev').css('display', 'none');
+	// 		}
+	// 	}
+	// }
+	// else if(id === 'all')
+	// {
+	// 	$('#all_prev').off('click');
+	// 	$('#all_next').off('click');
 
-		if(has_next_page)
-		{
-			if($('#all_next').css('display') != 'initial')
-			{
-				$('#all_next').css('display', 'initial');
-			}
-			$('#all_next').on('click','', function(){
-				get_recent_games(start+limit,limit);				
-			});
-		}
-		else
-		{
-			if($('#all_next').css('display') != 'none')
-			{
-				$('#all_next').css('display', 'none');
-			}
-		}
+	// 	if(has_next_page)
+	// 	{
+	// 		if($('#all_next').css('display') != 'initial')
+	// 		{
+	// 			$('#all_next').css('display', 'initial');
+	// 		}
+	// 		$('#all_next').on('click','', function(){
+	// 			get_recent_games(start+limit,limit);				
+	// 		});
+	// 	}
+	// 	else
+	// 	{
+	// 		if($('#all_next').css('display') != 'none')
+	// 		{
+	// 			$('#all_next').css('display', 'none');
+	// 		}
+	// 	}
 
-		if(start > 0)
-		{
-			if($('#all_prev').css('display') != 'initial')
-			{
-				$('#all_prev').css('display', 'initial');
-			}
-			$('#all_prev').on('click','', function(){
-				var new_start = start - limit;
-				if(new_start < 0)
-				{
-					new_start = 0;
-				}
-				get_recent_games(new_start,limit);				
-			});
-		}
-		else
-		{
-			if($('#all_prev').css('display') != 'none')
-			{
-				$('#all_prev').css('display', 'none');
-			}
-		}	
-	}
+	// 	if(start > 0)
+	// 	{
+	// 		if($('#all_prev').css('display') != 'initial')
+	// 		{
+	// 			$('#all_prev').css('display', 'initial');
+	// 		}
+	// 		$('#all_prev').on('click','', function(){
+	// 			var new_start = start - limit;
+	// 			if(new_start < 0)
+	// 			{
+	// 				new_start = 0;
+	// 			}
+	// 			get_recent_games(new_start,limit);				
+	// 		});
+	// 	}
+	// 	else
+	// 	{
+	// 		if($('#all_prev').css('display') != 'none')
+	// 		{
+	// 			$('#all_prev').css('display', 'none');
+	// 		}
+	// 	}	
+	// }
 
 	$('#' + table_id).append(tr_string);	
 
@@ -183,4 +183,6 @@ function print_games(data, start, limit, table_id, id) {
 	{
 		$('body').css('min-width', (parseInt(w_2)+100) + 'px');
 	}
+
+	$('#' + table_id).dynatable();
 }
